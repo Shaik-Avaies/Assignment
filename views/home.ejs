@@ -1,0 +1,26 @@
+<html>
+    <head>
+        <%= title %> 
+    </head>
+    <body>
+        <% if(locals.id == null) {%> 
+            <a href="/app/signUp">SignUp</a>
+            <a href="/app/signIn">SignIn</a>
+        <% } else { %> 
+            <form action="/app/sites/<%= id %> " method="post">
+                <input type="text" name="website" placeholder="Enter Website Name" required>
+                <input type="text" name="username" placeholder="Enter user Name" required>
+                <input type="password" name="password" placeholder="Enter Your Password" required> 
+                <input type="submit" value="Add">
+            </form>
+
+            <form action="/app/sites/list/<%= id %> " method="get">
+                <input type="submit" value="GetNotesOfThisUser">
+            </form>
+
+            <form action="/app/signOut" method="post">
+                <input type="submit" value="logOut">
+            </form>
+        <% } %>
+    </body>
+</html>
